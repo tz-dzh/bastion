@@ -1,16 +1,23 @@
 <?php $this->beginContent('/layouts/main'); ?>
-<div class="container">
-	<div id="content">
+<div id="content">
+	<div class="container">
 		<?php echo $content; ?>
 	</div><!-- content -->
-	<div id="sidebar">
-		<?php $this->widget('TagCloud', array(
-			'maxTags'=>Yii::app()->params['tagCloudCount'],
-		)); ?>
-
-		<?php $this->widget('RecentComments', array(
-			'maxComments'=>Yii::app()->params['recentCommentCount'],
-		)); ?>
-	</div><!-- sidebar -->
 </div>
+<div id="sidebar">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<?php $this->widget('TagCloud', array(
+					'maxTags'=>Yii::app()->params['tagCloudCount'],
+				)); ?>
+			</div>
+			<div class="col-lg-6">
+				<?php $this->widget('RecentComments', array(
+					'maxComments'=>Yii::app()->params['recentCommentCount'],
+				)); ?>
+			</div>
+		</div>
+	</div>
+</div><!-- sidebar -->
 <?php $this->endContent(); ?>
